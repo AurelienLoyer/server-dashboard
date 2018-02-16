@@ -1,0 +1,23 @@
+{
+  "name": "server-dashboard",
+  "version": "1.0.0",
+  "description": "Simple nodejs server monitoring",
+  "main": "app.js",
+  "scripts": {
+    "start": "node back/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
+    "df": "^1.1.1",
+    "express": "^4.16.2",
+    "express-basic-auth": "^1.1.4",
+    "mem-stat": "^1.0.5",
+    "path": "^0.12.7",
+    "readline-sync": "^1.4.8",
+    "socket.io": "^2.0.4"
+  }
+}
