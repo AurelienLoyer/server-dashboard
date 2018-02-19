@@ -12,11 +12,13 @@ const fs = require('fs');
 const path = require('path');
 const utils = require('./utils.js');
 
+// const { verifyAuth } = require('./auth.js');
+
 const port = config.port;
 
 // server stats
 const memStat = require('mem-stat');
-const df = require('df');
+const df = require('node-df');
 
 
 server.listen(port);
@@ -25,6 +27,7 @@ console.log(`Server Run / Mode ${env} / Port ${port} 🎄`);
 app.use(express.static('front'));
 app.use(bodyParser.json());
 app.use(cors());
+// app.use(verifyAuth);
 
 app.all('*', function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");

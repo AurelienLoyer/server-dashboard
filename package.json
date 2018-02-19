@@ -5,6 +5,8 @@
   "main": "app.js",
   "scripts": {
     "start": "node back/app.js",
+    "pm2": "pm2 start back/app.js --name 'server-dashboard'",
+    "restart": "pm2 restart 'server-dashboard'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -12,10 +14,10 @@
   "dependencies": {
     "body-parser": "^1.18.2",
     "cors": "^2.8.4",
-    "df": "^1.1.1",
     "express": "^4.16.2",
     "express-basic-auth": "^1.1.4",
     "mem-stat": "^1.0.5",
+    "node-df": "^0.1.4",
     "path": "^0.12.7",
     "readline-sync": "^1.4.8",
     "socket.io": "^2.0.4"
