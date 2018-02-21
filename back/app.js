@@ -19,7 +19,7 @@ const port = config.port;
 // server stats
 const memStat = require('mem-stat');
 const df = require('node-df');
-
+const percent = require('cpu-percent')
 
 server.listen(port);
 console.log(`Server Run / Mode ${env} / Port ${port} 🎄`);
@@ -53,6 +53,16 @@ app.get('/disks', function (req, res) {
 app.get('/memory', function (req, res) {
   const allStats = memStat.allStats();
   res.json(allStats);
+});
+
+app.get('/cpu', function (req, res) {
+  percent(function(err,percent){
+    if(err) {
+      console.error(err.stack);
+      return;
+    }
+    res.json(percent);
+  })
 });
 
 io.on('connection', function (socket) {
