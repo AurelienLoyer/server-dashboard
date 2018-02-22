@@ -19,7 +19,8 @@ const port = config.port;
 // server stats
 const memStat = require('mem-stat');
 const df = require('node-df');
-const percent = require('cpu-percent')
+const osutils = require('os-utils');
+const cmd = require('node-cmd');
 
 server.listen(port);
 console.log(`Server Run / Mode ${env} / Port ${port} 🎄`);
@@ -56,13 +57,21 @@ app.get('/memory', function (req, res) {
 });
 
 app.get('/cpu', function (req, res) {
-  percent(function(err,percent){
-    if(err) {
-      console.error(err.stack);
-      return;
+  osutils.cpuUsage(function (v) {
+    res.json(v);
+  });
+});
+
+app.get('/cpus', function (req, res) {
+  cmd.get(
+    "grep 'cpu ' /proc/stat | awk '{usage=($2+$4)*100/($2+$4+$5)} END {print usage "%"}'",
+    function(err, data, stderr){
+        console.log(err);
+        console.log(stderr);
+        console.log('cpu % : ',data);
     }
-    res.json(percent);
-  })
+);
+  res.json();
 });
 
 io.on('connection', function (socket) {

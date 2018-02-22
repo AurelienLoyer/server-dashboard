@@ -14,11 +14,12 @@
   "dependencies": {
     "body-parser": "^1.18.2",
     "cors": "^2.8.4",
-    "cpu-percent": "^2.0.1",
     "express": "^4.16.2",
     "express-basic-auth": "^1.1.4",
     "mem-stat": "^1.0.5",
+    "node-cmd": "^3.0.0",
     "node-df": "^0.1.4",
+    "os-utils": "0.0.14",
     "path": "^0.12.7",
     "readline-sync": "^1.4.8",
     "socket.io": "^2.0.4"
