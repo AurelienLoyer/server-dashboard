@@ -64,14 +64,11 @@ app.get('/cpu', function (req, res) {
 
 app.get('/cpus', function (req, res) {
   cmd.get(
-    "grep 'cpu ' /proc/stat | awk '{usage=($2+$4)*100/($2+$4+$5)} END {print usage "%"}'",
-    function(err, data, stderr){
-        console.log(err);
-        console.log(stderr);
-        console.log('cpu % : ',data);
+    "grep 'cpu ' /proc/stat | awk '{usage=($2+$4)*100/($2+$4+$5)} END {print usage}'",
+    function (err, data, stderr) {
+      res.json(data);
     }
-);
-  res.json();
+  );
 });
 
 io.on('connection', function (socket) {
