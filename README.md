@@ -9,5 +9,4 @@ Simple nodejs server monitoring
 
 ## Preview
 
-![screen](screen/screen_1.png)
 ![screen](screen/screen_2.png)
