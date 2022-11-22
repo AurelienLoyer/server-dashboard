@@ -22,6 +22,6 @@
     "os-utils": "0.0.14",
     "path": "^0.12.7",
     "readline-sync": "^1.4.8",
-    "socket.io": "^2.0.4"
+    "socket.io": "^2.5.0"
   }
 }
